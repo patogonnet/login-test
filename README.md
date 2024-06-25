@@ -1,0 +1,1 @@
+Agregar en el mismo directorio un archivo con le nombre "keycloak.json" con tu keycloak
