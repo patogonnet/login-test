@@ -13,7 +13,7 @@ const keycloakConfig = {
   authServerUrl: keycloak['auth-server-url'],
   clientId: keycloak.resource,
   clientSecret: keycloak.credentials['secret'],
-  redirectUri: process.env.REDIRECT_URI || "http://localhost:3000/callback"
+  redirectUri: process.env.REDIRECT_URI+"/callback" || "http://localhost:3000/callback"
 };
 
 
