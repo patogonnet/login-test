@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const axios = require('axios');
 const qs = require('qs');
@@ -5,6 +6,7 @@ const keycloak_ = require('./keycloak.json')
 
 const app = express();
 const port = process.env.PORT || 3000;
+const ip = process.env.REDIRECT_URI || "localhost";
 
 const keycloak = keycloak_
 
@@ -13,7 +15,7 @@ const keycloakConfig = {
   authServerUrl: keycloak['auth-server-url'],
   clientId: keycloak.resource,
   clientSecret: keycloak.credentials['secret'],
-  redirectUri: process.env.REDIRECT_URI+"/callback" || "http://localhost:3000/callback"
+  redirectUri: `http://${ip}:${port}/callback` || "http://localhost:3000/callback"
 };
 
 
