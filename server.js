@@ -4,18 +4,16 @@ const qs = require('qs');
 const keycloak_ = require('./keycloak.json')
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 const keycloak = keycloak_
-
-const urlRedirect = "http://localhost:3000/callback"
 
 const keycloakConfig = {
   realm: keycloak['realm'],
   authServerUrl: keycloak['auth-server-url'],
   clientId: keycloak.resource,
   clientSecret: keycloak.credentials['secret'],
-  redirectUri: urlRedirect
+  redirectUri: process.env.REDIRECT_URI || "http://localhost:3000/callback"
 };
 
 
